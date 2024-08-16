@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinnacle</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Hackathon Tracker</div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <!-- Profile Icon -->
+                <div class="profile-icon" style="display: none;">
+                    <img src="profile-icon.png" alt="Profile" class="icon">
+                    <div class="profile-name">Username</div>
+                </div>
+                <!-- Logout Button -->
+                <li><button id="logout-button">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <h1>Welcome to Hackathon Tracker</h1>
+            <p>Track your progress and stay updated with your team's efforts during hackathons.</p>
+        </section>
+
+        <section class="hackathons-overview">
+            <h2>Ongoing Hackathons</h2>
+            <div class="hackathon-list">
+                <!-- Placeholder for hackathons -->
+                <div class="hackathon-item">
+                    <h3>Hackathon 1</h3>
+                    <p>Brief description of Hackathon 1.</p>
+                    <div class="timeline">
+                        <p>Start Date: Aug 1, 2024</p>
+                        <p>Submission Deadline: Aug 15, 2024</p>
+                        <p>Judging: Aug 20, 2024</p>
+                        <p class="countdown">Time Remaining: <span id="countdown1"></span></p>
+                    </div>
+                </div>
+
+                <div class="hackathon-item">
+                    <h3>Hackathon 2</h3>
+                    <p>Brief description of Hackathon 2.</p>
+                    <div class="timeline">
+                        <p>Start Date: Aug 12, 2024</p>
+                        <p>Submission Deadline: Sep 15, 2024</p>
+                        <p>Judging: Sep 20, 2024</p>
+                        <p class="countdown">Time Remaining: <span id="countdown2"></span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-buttons">
+            <button onclick="toggleForm()">Add Hackathon</button>
+        </section>
+
+        <!-- Add Hackathon Form -->
+        <div class="hackathon-form-container" style="display: none;">
+            <h2>Add a New Hackathon</h2>
+            <form class="hackathon-form">
+                <div class="form-group">
+                    <label for="hackathon-name">Hackathon Name</label>
+                    <input type="text" id="hackathon-name" placeholder="Enter hackathon name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hackathon-title">Problem Title</label>
+                    <textarea id="hackathon-title" rows="4" placeholder="Provide a brief title" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="hackathon-description">Problem Description</label>
+                    <textarea id="hackathon-description" rows="4" placeholder="Provide a brief description"
+                        required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="hackathon-start">Start Date</label>
+                    <input type="date" id="hackathon-start" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hackathon-end">Submission Date</label>
+                    <input type="date" id="hackathon-end" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="hackathon-result">Result Date</label>
+                    <input type="date" id="hackathon-result" required>
+                </div>
+
+                <div class="form-group form-group-actions">
+                    <button type="submit">Add Hackathon</button>
+                </div>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hackathon Tracker. All rights reserved.</p>
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        function toggleForm() {
+            const formContainer = document.querySelector('.hackathon-form-container');
+            if (formContainer) {
+                formContainer.style.display = formContainer.style.display === 'none' ? 'block' : 'none';
+            } else {
+                console.error('Form container not found.');
+            }
+        }
+
+        document.querySelector('.hackathon-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const hackathon = {
+                name: event.target.querySelector('#hackathon-name').value,
+                title: event.target.querySelector('#hackathon-title').value,
+                description: event.target.querySelector('#hackathon-description').value,
+                startDate: event.target.querySelector('#hackathon-start').value,
+                submissionDeadline: event.target.querySelector('#hackathon-end').value,
+                judgingDate: event.target.querySelector('#hackathon-result').value
+            };
+            await addHackathon(hackathon); // Make sure to define addHackathon function
+            alert("Hackathon added successfully!");
+            toggleForm();
+        });
+
+        function calculateCountdown(deadline, countdownElementId) {
+            const now = new Date();
+            const deadlineDate = new Date(deadline);
+            const timeRemaining = deadlineDate - now;
+
+            const daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hoursRemaining = Math.floor(timeRemaining / (1000 * 60 * 60));
+
+            if (daysRemaining > 3) {
+                document.getElementById(countdownElementId).textContent = `${daysRemaining} days`;
+            } else if (timeRemaining > 0) {
+                document.getElementById(countdownElementId).textContent = `${hoursRemaining} hours`;
+            } else {
+                document.getElementById(countdownElementId).textContent = "Time's up!";
+            }
+        }
+
+        // Example: Calculate countdown for Hackathon 1 with submission deadline on August 15, 2024
+        calculateCountdown('2024-08-15T00:00:00', 'countdown1');
+        // Add calculation for Hackathon 2 if needed
+    </script>
+    <script src="./main.js" type="module" defer></script>
+    <!-- <script src="profile.js" type="module"defer></script> -->
+</body>
+
+</html>

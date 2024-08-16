@@ -1,0 +1,446 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f6f9;
+}
+
+/* Header Styles */
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 2rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Profile Icon Styles */
+.profile-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.profile-icon .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    margin-left: 10px;
+    font-size: 16px;
+    color: white;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    white-space: nowrap;
+}
+
+.profile-icon:hover .profile-name {
+    display: block;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+}
+
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+footer nav ul li {
+    margin: 0 1rem;
+}
+
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+/* Welcome Section */
+.welcome {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Hackathon Overview */
+.hackathons-overview {
+    margin-bottom: 2rem;
+}
+
+.hackathon-list {
+    display: flex;
+    gap: 1rem;
+}
+
+.hackathon-item {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.cta-buttons button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 0 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cta-buttons button:hover {
+    background-color: #0056b3;
+}
+
+/* Hackathon Form Container */
+.hackathon-form-container {
+    display: none;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hackathon-form-container h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    /* Allows vertical resize only */
+}
+
+/* Submit Button Styles */
+.form-group-actions {
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Timeline Styles */
+.timeline-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 1rem 0;
+    overflow-x: auto;
+    /* Allows horizontal scrolling if content overflows */
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 200px;
+    /* Adjust width as needed */
+}
+
+.timeline-marker {
+    background-color: #007bff;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-content {
+    margin-left: 2rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+/* Optional: Add a line connecting the timeline items */
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #007bff;
+    z-index: 0;
+}
+
+/* Hackathon Details Page */
+.hackathon-details,
+.hackathon-timeline,
+.problem-statement,
+.solution-section,
+.progress-updates,
+.polling-section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+form textarea {
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+#submitted-solutions ul,
+#logged-progress ul,
+.poll ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#submitted-solutions ul li,
+#logged-progress ul li,
+.poll ul li {
+    margin-bottom: 0.5rem;
+    background-color: #f8f9fa;
+    padding: 0.75rem;
+    border-radius: 5px;
+}
+
+.poll ul li button {
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.poll ul li button:hover {
+    background-color: #ec971f;
+}
+/* General Styles */
+.progress-updates {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#progress-form {
+    margin-bottom: 2rem;
+}
+
+#progress-form .form-group {
+    margin-bottom: 1rem;
+}
+
+#progress-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 16px;
+}
+
+#progress-form input[type="date"],
+#progress-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#progress-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#progress-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Progress Log Styles */
+#progress-log h3 {
+    color: #007bff;
+}
+
+#user-progress-timeline {
+    position: relative;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.user-progress {
+    position: relative;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-progress::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff;
+}
+
+.progress-entry {
+    margin-bottom: 10px;
+}
+
+.progress-entry h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.progress-entry p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Details</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">Hackathon Tracker</div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <div class="profile-icon" style="display: none;">
+                    <img src="profile-icon.png" alt="Profile" class="icon">
+                    <div class="profile-name"></div>
+                </div>
+                <li><button id="logout-button">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hackathon-details">
+            <h1></h1>
+            <p></p>
+        </section>
+
+        <section class="hackathon-timeline">
+            <h2>Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Start Date</h3>
+                        <p id="start-date"></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Submission Deadline</h3>
+                        <p id="submission-deadline"></p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>Judging</h3>
+                        <p id="judging-date"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p></p>
+        </section>
+
+        <section class="solution-section">
+            <h2>Main Solution</h2>
+            <form id="solution-form">
+                <textarea name="solution" placeholder="Describe your solution..." rows="4"></textarea>
+                <button type="submit">Update Solution</button>
+            </form>
+            <div id="solution-details">
+                <h3>Current Solution</h3>
+                <p></p>
+                <h4>Planned Features</h4>
+                <ul id="planned-features"></ul>
+            </div>
+        </section>
+
+        <section id="user-progress-timeline">
+            <h2>Participant Progress</h2>
+        </section>
+        
+        <section class="solution-section">
+            <h2>Submit Your Progress</h2>
+            <form id="progress-form">
+                <input type="date" name="progress-date" required>
+                <textarea name="progress" placeholder="Enter your progress..."></textarea>
+                <button type="submit">Submit Progress</button>
+            </form>
+        </section>
+
+        <section class="polling-section">
+            <h2>Vote on Ideas</h2>
+            <div class="poll" id="poll">
+                <!-- Poll options will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Hackathon Tracker. All rights reserved.</p>
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+<script type="module" src="hackathon.js"></script>
+</html>
